@@ -53,14 +53,14 @@ let questions = [
  const CORRECT_BONUS = 10;
 const MAX_QUESTIONS = 5;
 
-startGame = () => {
+function startGame(){
   questionCounter = 0;
   score = 0;
   availableQuesions = [...questions];
   getNewQuestion();
 };
 
-getNewQuestion = () => {
+function getNewQuestion () {
   if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
  localStorage.setItem("mostRecentScore", score);
 
@@ -76,6 +76,7 @@ getNewQuestion = () => {
   choices.forEach(choice => {
     const number = choice.dataset["number"];
     choice.innerText = currentQuestion["choice" + number];
+    console.log(choice)
   });
 
   availableQuesions.splice(questionIndex, 1);
